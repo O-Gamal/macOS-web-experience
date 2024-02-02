@@ -20,7 +20,7 @@ const Tooltip = ({
         <TooltipComponent.Portal>
           <TooltipComponent.Content
             className={cn(
-              'select-none rounded-md bg-zinc-800/90 px-3 py-2 text-sm font-light leading-none text-white shadow ring-1 ring-white/60',
+              'select-none rounded-md bg-zinc-800/90 px-3 py-2 text-sm font-light leading-none text-white shadow ring-1 ring-zinc-600',
               className
             )}
             sideOffset={5}
