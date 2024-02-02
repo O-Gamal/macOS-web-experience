@@ -11,7 +11,7 @@ const config: Config = {
         '96': 'repeat(96, minmax(0, 1fr))',
       },
       backgroundImage: {
-        wallpaper: "url('/src/assets/images/wallpaper.jpg')",
+        wallpaper: "url('/src/assets/images/wallpaper-1.png')",
       },
     },
   },
