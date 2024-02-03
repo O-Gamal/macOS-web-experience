@@ -1,10 +1,11 @@
 import { AppIconType } from '@assets/appIcons';
 import AppIcon from '@components/app/appIcon';
+import { useMotionValue } from 'framer-motion';
 
 import Separator from './Separator';
 
 const DockApps: {
-  name: AppIconType;
+  name: AppIconType | 'seperator';
   isOpen?: boolean;
 }[] = [
   {
@@ -49,23 +50,39 @@ const DockApps: {
   {
     name: 'warp',
   },
+  {
+    name: 'seperator',
+  },
+  {
+    name: 'trash',
+  },
 ];
 
 const Dock = () => {
+  const mouseX = useMotionValue(Infinity);
+
   return (
-    <section className='fixed bottom-2 left-1/2 -translate-x-1/2 rounded-2xl border border-white/30 bg-black/40 p-1.5 pb-2 shadow-2xl backdrop-blur-md '>
-      <section className='flex w-full items-center gap-0.5'>
-        {DockApps.map((app) => (
+    <section
+      onMouseMove={(e) => {
+        mouseX.set(e.pageX);
+      }}
+      onMouseLeave={() => {
+        mouseX.set(Infinity);
+      }}
+      className='fixed bottom-2 left-1/2 flex h-16 -translate-x-1/2 items-end gap-0.5 rounded-2xl border border-white/30 bg-black/40 p-1.5 pb-2 shadow-2xl backdrop-blur-md '
+    >
+      {DockApps.map((app) =>
+        app.name === 'seperator' ? (
+          <Separator key={app.name} size={1} />
+        ) : (
           <AppIcon
+            mouseX={mouseX}
             key={app.name}
             name={app.name}
             isOpen={app.isOpen}
-            size={1}
           />
-        ))}
-        <Separator size={1} />
-        <AppIcon name='trash' size={0.9} />
-      </section>
+        )
+      )}
     </section>
   );
 };
