@@ -2,9 +2,8 @@ import Icon from '@components/ui/Icon';
 import Menu from '@components/ui/menu';
 
 import Battary from './Battary';
+import DateAndTime from './DateAndTime';
 import menuItemsConfig from './menuItems.config';
-
-// const menuItems = ['File', 'Edit', 'View', 'Go', 'Window', 'Help'];
 
 const MenuBar = () => {
   return (
@@ -16,10 +15,7 @@ const MenuBar = () => {
           <Battary />
           <Icon name='spotlight' className='h-4' />
           <Icon name='controlCenter' className='h-4' />
-          <section className='flex items-center gap-2'>
-            <span className='text-[13px] font-medium'>Fri 2 Feb</span>
-            <span className='text-[13px] font-medium'>11:07 PM</span>
-          </section>
+          <DateAndTime />
         </section>
       </section>
     </section>
