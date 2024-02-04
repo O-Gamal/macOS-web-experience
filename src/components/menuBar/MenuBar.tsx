@@ -1,24 +1,16 @@
 import Icon from '@components/ui/Icon';
+import Menu from '@components/ui/menu';
 
 import Battary from './Battary';
+import menuItemsConfig from './menuItems.config';
 
-const menuItems = ['File', 'Edit', 'View', 'Go', 'Window', 'Help'];
+// const menuItems = ['File', 'Edit', 'View', 'Go', 'Window', 'Help'];
 
 const MenuBar = () => {
   return (
-    <section className='fixed top-0 h-6 w-screen bg-white/70 backdrop-blur-sm'>
-      <section className='flex h-full items-center justify-between px-4'>
-        <section className='flex items-center gap-4'>
-          <section className='flex items-center gap-5'>
-            <Icon name='appleLogo' className='h-5' />
-            <button className='text-sm font-bold'>Finder</button>
-          </section>
-          {menuItems.map((item, index) => (
-            <button key={index} className='text-sm'>
-              {item}
-            </button>
-          ))}
-        </section>
+    <section className='fixed top-0 w-screen bg-white/90 backdrop-blur-sm'>
+      <section className='flex items-center justify-between px-4'>
+        <Menu menuItems={menuItemsConfig} />
         <section className='flex items-center gap-3'>
           <Icon name='wifi' className='h-4' />
           <Battary />
