@@ -1,14 +1,58 @@
-import { useBattery } from '@uidotdev/usehooks';
+import { useEffect, useState } from 'react';
+
+interface Navigator {
+  getBattery(): Promise<BatteryManager>;
+}
+
+interface BatteryManager extends EventTarget {
+  charging: boolean;
+  level: number;
+}
 
 const Battary = () => {
-  const { loading, level } = useBattery();
+  const [loading, setLoading] = useState(true);
+  const [batteryState, setBatteryState] = useState({
+    level: 0,
+    charging: false,
+  });
+
+  useEffect(() => {
+    let battery: BatteryManager | null = null;
+
+    const updateBatteryInfo = () => {
+      if (battery) {
+        setBatteryState({
+          level: battery.level,
+          charging: battery.charging,
+        });
+      }
+    };
+
+    if ('getBattery' in navigator) {
+      (navigator as Navigator).getBattery().then((bm) => {
+        battery = bm;
+        updateBatteryInfo();
+
+        battery.addEventListener('chargingchange', () => updateBatteryInfo());
+        battery.addEventListener('levelchange', () => updateBatteryInfo());
+      });
+    }
+    setLoading(false);
+
+    return () => {
+      if (battery) {
+        battery.removeEventListener('chargingchange', updateBatteryInfo);
+        battery.removeEventListener('levelchange', updateBatteryInfo);
+      }
+    };
+  }, []);
 
   return (
     <div className=''>
       {!loading && (
         <div className='flex items-center'>
           <span className='text-xs font-medium'>
-            {Math.floor(level! * 100)}%
+            {Math.floor(batteryState.level! * 100)}%
           </span>
           <svg
             height='26'
