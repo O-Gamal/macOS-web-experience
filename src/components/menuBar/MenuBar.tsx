@@ -9,7 +9,7 @@ import menuItemsConfig from './menuItems.config';
 const MenuBar = () => {
   return (
     <section className='fixed top-0 w-screen bg-white/90 backdrop-blur-sm'>
-      <section className='flex items-center justify-between px-4'>
+      <section className='flex items-center justify-between pl-2 pr-3'>
         <Menu menuItems={menuItemsConfig} />
         <section className='flex items-center gap-3'>
           <Icon name='wifi' className='h-4' />
@@ -17,8 +17,8 @@ const MenuBar = () => {
           <Icon name='spotlight' className='h-4' />
           <Icon name='controlCenter' className='h-4' />
           <section className='flex items-center gap-2'>
-            <span className='text-sm'>Fri 2 Feb</span>
-            <span className='text-sm'>11:07 PM</span>
+            <span className='text-[13px] font-medium'>Fri 2 Feb</span>
+            <span className='text-[13px] font-medium'>11:07 PM</span>
           </section>
         </section>
       </section>

@@ -29,7 +29,7 @@ const menuItemsConfig: MenuItem[] = [
     ],
   },
   {
-    label: <span className='font-bold'>Finder</span>,
+    label: <span className='text-[15px] font-bold'>Finder</span>,
     content: [
       { label: 'About This Mac', onClick: () => {} },
       { label: 'System Preferences', onClick: () => {} },
