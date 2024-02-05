@@ -3,6 +3,7 @@ import * as Menubar from '@radix-ui/react-menubar';
 import Icon from '../icon';
 import { MenuItemContent } from './Menu.types';
 import MenuItem from './MenuItem';
+import MenuSeparator from './MenuSeparator';
 
 const SubMenuItem = ({ label, details }: MenuItemContent) => {
   return (
@@ -18,9 +19,7 @@ const SubMenuItem = ({ label, details }: MenuItemContent) => {
         >
           {details?.subContent?.map((item, index) => (
             <>
-              {item.isSeperate && (
-                <Menubar.Separator className='m-[5px] h-[1px] bg-white/20' />
-              )}
+              {item.isSeperate && <MenuSeparator />}
               <MenuItem
                 key={index}
                 label={item.label}

@@ -7,6 +7,7 @@ export type MenuItemContent = {
     shortcut?: React.ReactNode;
     subContent?: MenuItemContent[];
   };
+  className?: string;
 };
 
 export type MenuItem = {
@@ -14,7 +15,20 @@ export type MenuItem = {
   content: MenuItemContent[];
 };
 
+type Align = 'start' | 'center' | 'end';
+type Side = 'top' | 'right' | 'bottom' | 'left';
+
 export type MenuProps = {
   menuItems: MenuItem[];
   className?: string;
+  align?: Align;
+  side?: Side;
+};
+
+export type CustomMenuItemProps = {
+  label: React.ReactNode;
+  children: React.ReactNode;
+  className?: string;
+  align?: Align;
+  side?: Side;
 };
