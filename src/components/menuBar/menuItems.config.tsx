@@ -1,5 +1,5 @@
-import Icon from '@components/ui/Icon';
-import { MenuItem } from '@components/ui/menu/menu.types';
+import Icon from '@components/ui/icon/Icon';
+import { MenuItem } from '@components/ui/menu/Menu.types';
 
 const menuItemsConfig: MenuItem[] = [
   {
@@ -9,23 +9,44 @@ const menuItemsConfig: MenuItem[] = [
         label: 'About This Mac',
         onClick: () => {},
       },
-      'seperator',
       {
-        label: 'System Preferences',
+        label: 'System Preferences...',
         onClick: () => {},
       },
-      { label: 'App Store', onClick: () => {}, disabled: true },
-      'seperator',
-      { label: 'Recent Items', onClick: () => {} },
-      'seperator',
-      { label: 'Force Quit', onClick: () => {}, details: { shortcut: '⇧⌘Q' } },
-      'seperator',
+      {
+        label: 'App Store...',
+        onClick: () => {},
+      },
+      {
+        label: 'Recent Items',
+        onClick: () => {},
+        isSeperate: true,
+        details: {
+          subContent: [
+            { label: 'Applications', onClick: () => {} },
+            { label: 'Documents', onClick: () => {} },
+            { label: 'Servers', onClick: () => {} },
+            { label: 'Clear Menu', onClick: () => {}, isSeperate: true },
+          ],
+        },
+      },
+
+      {
+        label: 'Force Quit...',
+        onClick: () => {},
+        details: { shortcut: '⌥⌘Esc' },
+      },
+
       { label: 'Sleep', onClick: () => {} },
-      { label: 'Restart', onClick: () => {} },
-      { label: 'Shut Down', onClick: () => {} },
-      'seperator',
-      { label: 'Lock Screen', onClick: () => {}, details: { shortcut: '^⌘Q' } },
-      { label: 'Log Out', onClick: () => {}, details: { shortcut: '⇧⌘Q' } },
+      { label: 'Restart...', onClick: () => {} },
+      { label: 'Shut Down...', onClick: () => {} },
+      {
+        label: 'Lock Screen',
+        onClick: () => {},
+        details: { shortcut: '⌃⌘Q' },
+        isSeperate: true,
+      },
+      { label: 'Log Out...', onClick: () => {}, details: { shortcut: '⇧⌘Q' } },
     ],
   },
   {
@@ -33,16 +54,13 @@ const menuItemsConfig: MenuItem[] = [
     content: [
       { label: 'About This Mac', onClick: () => {} },
       { label: 'System Preferences', onClick: () => {} },
-      'seperator',
-      { label: 'App Store...', onClick: () => {} },
+      { label: 'App Store...', onClick: () => {}, isSeperate: true },
       { label: 'Recent Items', onClick: () => {} },
-      'seperator',
-      { label: 'Force Quit...', onClick: () => {} },
+      { label: 'Force Quit...', onClick: () => {}, isSeperate: true },
       { label: 'Sleep', onClick: () => {} },
       { label: 'Restart', onClick: () => {} },
       { label: 'Shut Down', onClick: () => {} },
-      'seperator',
-      { label: 'Log Out', onClick: () => {} },
+      { label: 'Log Out', onClick: () => {}, isSeperate: true },
     ],
   },
   {
@@ -52,8 +70,7 @@ const menuItemsConfig: MenuItem[] = [
       { label: 'Open', onClick: () => {} },
       { label: 'Save', onClick: () => {} },
       { label: 'Save As', onClick: () => {} },
-      'seperator',
-      { label: 'Close', onClick: () => {} },
+      { label: 'Close', onClick: () => {}, isSeperate: true },
     ],
   },
   {
@@ -61,12 +78,10 @@ const menuItemsConfig: MenuItem[] = [
     content: [
       { label: 'Undo', onClick: () => {} },
       { label: 'Redo', onClick: () => {} },
-      'seperator',
-      { label: 'Cut', onClick: () => {} },
+      { label: 'Cut', onClick: () => {}, isSeperate: true },
       { label: 'Copy', onClick: () => {} },
       { label: 'Paste', onClick: () => {} },
-      'seperator',
-      { label: 'Select All', onClick: () => {} },
+      { label: 'Select All', onClick: () => {}, isSeperate: true },
     ],
   },
   {
@@ -74,8 +89,7 @@ const menuItemsConfig: MenuItem[] = [
     content: [
       { label: 'Zoom In', onClick: () => {} },
       { label: 'Zoom Out', onClick: () => {} },
-      'seperator',
-      { label: 'Full Screen', onClick: () => {} },
+      { label: 'Full Screen', onClick: () => {}, isSeperate: true },
     ],
   },
   {
@@ -83,8 +97,7 @@ const menuItemsConfig: MenuItem[] = [
     content: [
       { label: 'Back', onClick: () => {} },
       { label: 'Forward', onClick: () => {} },
-      'seperator',
-      { label: 'Home', onClick: () => {} },
+      { label: 'Home', onClick: () => {}, isSeperate: true },
     ],
   },
   {
@@ -92,8 +105,7 @@ const menuItemsConfig: MenuItem[] = [
     content: [
       { label: 'Minimize', onClick: () => {} },
       { label: 'Zoom', onClick: () => {} },
-      'seperator',
-      { label: 'Bring All to Front', onClick: () => {} },
+      { label: 'Bring All to Front', onClick: () => {}, isSeperate: true },
     ],
   },
   {
@@ -101,8 +113,7 @@ const menuItemsConfig: MenuItem[] = [
     content: [
       { label: 'Help', onClick: () => {} },
       { label: 'Report Issue', onClick: () => {} },
-      'seperator',
-      { label: 'About', onClick: () => {} },
+      { label: 'About', onClick: () => {}, isSeperate: true },
     ],
   },
 ];

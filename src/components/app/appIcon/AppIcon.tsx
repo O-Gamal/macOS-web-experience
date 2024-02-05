@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 import appIcons, { AppIconType } from '@assets/appIcons';
-import Tooltip from '@components/ui/Tooltip';
+import Tooltip from '@components/ui/tooltip/Tooltip';
 import { motion, MotionValue, useSpring, useTransform } from 'framer-motion';
 
 type AppIconProps = {

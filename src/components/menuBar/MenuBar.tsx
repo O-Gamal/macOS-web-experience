@@ -1,4 +1,4 @@
-import Icon from '@components/ui/Icon';
+import Icon from '@components/ui/icon/Icon';
 import Menu from '@components/ui/menu';
 
 import Battary from './Battary';

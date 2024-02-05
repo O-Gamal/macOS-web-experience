@@ -1,8 +1,7 @@
-type Seperator = 'seperator';
-
-type MenuItemContent = {
+export type MenuItemContent = {
   label: React.ReactNode;
-  onClick: () => void;
+  isSeperate?: boolean;
+  onClick?: () => void;
   disabled?: boolean;
   details?: {
     shortcut?: React.ReactNode;
@@ -12,7 +11,7 @@ type MenuItemContent = {
 
 export type MenuItem = {
   label: React.ReactNode;
-  content: (MenuItemContent | Seperator)[];
+  content: MenuItemContent[];
 };
 
 export type MenuProps = {
