@@ -18,6 +18,7 @@ const Battary = () => {
 
   useEffect(() => {
     let battery: BatteryManager | null = null;
+    console.log('navigator', navigator);
 
     const updateBatteryInfo = () => {
       if (battery) {
@@ -35,6 +36,11 @@ const Battary = () => {
 
         battery.addEventListener('chargingchange', () => updateBatteryInfo());
         battery.addEventListener('levelchange', () => updateBatteryInfo());
+      });
+    } else {
+      setBatteryState({
+        level: 1,
+        charging: false,
       });
     }
     setLoading(false);

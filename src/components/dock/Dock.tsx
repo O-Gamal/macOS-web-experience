@@ -69,7 +69,7 @@ const Dock = () => {
       onMouseLeave={() => {
         mouseX.set(Infinity);
       }}
-      className='fixed bottom-2 left-1/2 flex h-16 -translate-x-1/2 items-end gap-0.5 rounded-2xl border border-white/30 bg-black/40 p-1.5 pb-2 shadow-2xl backdrop-blur-md '
+      className='fixed bottom-2 left-1/2 flex h-16 -translate-x-1/2 select-none items-end gap-0.5 rounded-2xl border border-white/30 bg-black/40 p-1.5 pb-2 shadow-2xl backdrop-blur-md'
     >
       {DockApps.map((app) =>
         app.name === 'seperator' ? (
