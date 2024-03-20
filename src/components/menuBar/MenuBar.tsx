@@ -14,7 +14,12 @@ import menuItemsConfig from './menuItems.config';
 const MenuBar = () => {
   const [wifi, setWifi] = useState(false);
   return (
-    <section className='fixed top-0 z-50 w-screen cursor-default select-none bg-white/90 backdrop-blur-sm'>
+    <section
+      className='fixed top-0 z-50 w-screen cursor-default select-none bg-white/90 backdrop-blur-sm'
+      onContextMenu={(e) => {
+        e.preventDefault();
+      }}
+    >
       <section className='flex items-center justify-between pl-2 pr-3'>
         <Menu menuItems={menuItemsConfig} />
         <section className='flex items-center gap-3'>

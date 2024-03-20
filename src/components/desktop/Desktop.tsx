@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 
+import ContextMenu from '@components/ui/contextMenu';
+
+import contextMenuItems from './contextMenu.config';
 import HighlightArea from './HighlightArea';
 
 const Desktop = () => {
@@ -43,21 +46,23 @@ const Desktop = () => {
   };
 
   return (
-    <main
-      className='relative h-screen w-screen cursor-default bg-wallpaper bg-cover'
-      onContextMenu={() => {
-        setIsDragging(false);
-      }}
-      onMouseDown={handleMouseDown}
-    >
-      {(isDragging || showHighlightArea) && (
-        <HighlightArea
-          startPoint={startPoint}
-          endPoint={endPoint}
-          isDrading={isDragging}
-        />
-      )}
-    </main>
+    <ContextMenu menuItems={contextMenuItems}>
+      <main
+        className='relative h-screen w-screen cursor-default bg-wallpaper bg-cover'
+        onContextMenu={() => {
+          setIsDragging(false);
+        }}
+        onMouseDown={handleMouseDown}
+      >
+        {(isDragging || showHighlightArea) && (
+          <HighlightArea
+            startPoint={startPoint}
+            endPoint={endPoint}
+            isDrading={isDragging}
+          />
+        )}
+      </main>
+    </ContextMenu>
   );
 };
 
